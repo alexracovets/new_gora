@@ -17,7 +17,12 @@ const config: Config = {
 				'regal-black': '#171717',
 				'regal-white': '#FFFFFF',
 				'regal-green': '#D2F999',
-				'regal-gray': '#E9E9E9'
+				'regal-gray': '#E9E9E9',
+				'second-gray': '#F3F3F3',
+				'grid-100': 'rgb(36,118,22)',
+				'grid-200': 'rgb(255,235,59)',
+				'grid-300': 'rgb(233,30,99)',
+				'grid-500': 'rgb(156,39,176)'
 			},
 		}
 	},

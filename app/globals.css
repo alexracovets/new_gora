@@ -29,3 +29,8 @@ html {
     font-size: calc(100vw / 430 * 10);
   }
 }
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}

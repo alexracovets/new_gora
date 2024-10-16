@@ -33,10 +33,12 @@ export const Header: React.FC = () => {
     ]
 
     return (
-        <header className='absolute left-0 top-[3.8rem] w-full z-[1]'>
+        <header className='absolute left-0 top-[3.6dvh] w-full z-[1]'>
             <Container>
                 <div className='flex justify-between items-center w-[full] py-[3.2rem] px-[4.6rem] bg-regal-white rounded-[4rem]'>
-                    <Logo className='w-[12.055rem] h-[5.6rem]' color='#171717' />
+                    <Link href={'/'}>
+                        <Logo className='w-[12.055rem] h-[5.6rem]' color='#171717' />
+                    </Link>
                     <NavigationMenu>
                         <NavigationMenuList>
                             {

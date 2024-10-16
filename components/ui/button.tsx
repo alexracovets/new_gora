@@ -10,15 +10,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-[2.2rem] font-[600] mr-[.8rem]",
+        default: "text-[2.2rem] font-[600] px-[3rem] py-[1.65rem]",
         destructive: "",
         outline: "",
-        secondary: "",
+        secondary: "text-[2.2rem] text-regal-white font-[600] px-[2.85rem] py-[1.65rem] border-regal-white",
         ghost: "",
         link: "",
       },
       size: {
-        default: "px-[3rem] py-[1.65rem]",
+        default: "",
         sm: "",
         lg: "",
         icon: "",
