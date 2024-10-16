@@ -6,7 +6,7 @@ import { MapControls as MapControlsType } from 'three-stdlib';
 
 export const Camera: React.FC = () => {
     const controlsRef = useRef<MapControlsType | null>(null);
-    const basePan = 2;  // Базове обмеження для панорамування (це мінімум)
+    const basePan = 3;  // Базове обмеження для панорамування (це мінімум)
     const maxZoom = 5.5; // Максимальний зум (найближче)
     const minZoom = 1;   // Мінімальний зум (найдалі)
 

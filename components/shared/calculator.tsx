@@ -2,19 +2,24 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
- 
+
+import useForm from '@/store/useForm';
 import useStoreGrid from '@/store/useStoreGrid';
 import { cn } from '@/lib/utils';
 
 interface GridItem { price: number; count: number; }
 
 export const Calculator: React.FC = () => {
-    const activeGrids = useStoreGrid(state => state.activeGrids); 
+    const activeGrids = useStoreGrid(state => state.activeGrids);
+    const setIsModal = useForm(state => state.setIsModal);
+    const [priceTotal, setPriceTotal] = useState(0);
     const [sections, setSections] = useState<{ price: number, count: number }[]>([]);
 
     useEffect(() => {
-        const newSections: { price: number, count: number }[] = []; 
-        activeGrids.forEach((item: GridItem) => { 
+        const newSections: { price: number, count: number }[] = [];
+        let newTotalPrice = 0;
+        activeGrids.forEach((item: GridItem) => {
+            newTotalPrice += item.price;
             const existingSection = newSections.find(s => s.price === item.price);
 
             if (existingSection) {
@@ -24,11 +29,12 @@ export const Calculator: React.FC = () => {
             }
         });
 
-        setSections(newSections); 
+        setSections(newSections);
+        setPriceTotal(newTotalPrice);
     }, [activeGrids]);
 
     return (
-        <div className='absolute left-0 bottom-[3.6dvh] flex justify-between items-center w-full py-[3.2rem] px-[3.4rem] bg-regal-black rounded-[4rem]'>
+        <div className='absolute left-0 bottom-[2dvh] flex justify-between items-center w-full py-[2rem] px-[2rem] bg-regal-black rounded-[2.5rem]'>
             <div className='flex justify-start items-center gap-[2rem]'>
                 {sections.map((section: GridItem) => {
                     const checkColor = () => {
@@ -47,24 +53,23 @@ export const Calculator: React.FC = () => {
                     }
                     return (
                         <>
-                            <div className={cn('flex flex-col justify-center items-center w-[13.4rem] h-[13.4rem] rounded-[3rem] bg-[#F7FBFE]', checkColor())}>
-                                <div className='text-[1.8rem] font-[700] mb-[.6rem] leading-[1]'>
+                            <div className={cn('flex flex-col justify-center items-center w-[10rem] h-[10rem] rounded-[2rem] bg-[#F7FBFE]', checkColor())}>
+                                <div className='text-[1.5rem] font-[700] mb-[.6rem] leading-[1]'>
                                     {section.price + ' $'}
                                 </div>
-                                <div className='text-[5.533rem] font-[300] leading-[1]'>
+                                <div className='text-[4rem] font-[300] leading-[1]'>
                                     x{section.count}
                                 </div>
                             </div>
                         </>
-
                     );
                 })}
             </div>
-            <div className='flex flex-col justify-start items-start'>
-                <div className='text-[3.459rem] text-regal-white font-[300] mb-[2.6rem]'>
-                    Вартість: 2900 $
+            <div className='flex flex-col justify-start items-start min-w-[28rem]'>
+                <div className='text-[3rem] text-regal-white font-[300] mb-[1rem]'>
+                    Вартість: {priceTotal} $
                 </div>
-                <Button variant={'secondary'}>
+                <Button variant={'secondary'} onClick={() => setIsModal(true)}>
                     Зробити внесок
                 </Button>
             </div>
