@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Section } from '../section';
-import { Container } from '../container';
+
+import { Container } from '@/components/shared/container';
+import { Section } from '@/components/shared/section';
 
 export const LocationSection: React.FC = () => {
 

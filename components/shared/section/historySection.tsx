@@ -4,13 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import { Section } from '../section';
-import { Container } from '../container';
+import { Container } from '@/components/shared/container';
+import { Section } from '@/components/shared/section';
 import { Button } from "@/components/ui/button";
 
 export const HistorySection: React.FC = () => {
     return (
-        <Section>
+        <Section className='pt-[7.4rem] pb-[12.5rem]'>
             <Image src='img/history.jpg' fill alt='history' className="object-cover z-[-1]" />
             <Container className='py-[7.5rem] flex justify-end items-center'>
                 <div className='relative w-[54.5rem] h-[33.7rem] px-[11.3rem] pt-[11.3rem]'>

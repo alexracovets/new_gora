@@ -6,12 +6,12 @@ import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
 import Link from 'next/link';
 
 import { Container } from "@/components/shared/container";
-import Logo from './logo';
+import Logo from '@/components/shared/logo';
 
 export const Footer: React.FC = () => {
 
     return (
-        <footer className='bg-regal-black rounded-t-[4rem] mt-[-4rem]' id='contact'>
+        <footer className='bg-regal-black rounded-t-[4rem] mt-[-4rem] relative' id='contact'>
             <Container className='py-[8.8rem] flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
                     <Logo className='w-[10.333rem] h-[4.8rem] mr-[2rem]' />
