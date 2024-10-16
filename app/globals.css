@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat);
+  color: var(--regal-black);
 }
 
 @layer utilities {
@@ -15,5 +16,16 @@ body {
 @layer base {
   :root {
     --radius: 0.5rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: calc(100vw / 1512 * 10);
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: calc(100vw / 430 * 10);
   }
 }
