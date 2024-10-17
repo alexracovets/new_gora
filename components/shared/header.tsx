@@ -41,13 +41,29 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
     ]
 
     return (
-        <header className='absolute left-0 w-full z-[1]' onPointerMove={() => setIsHideHeader(false)}>
-            <Container className={cn('transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh]', isHideHeader && canHide ? 'translate-y-[-150%]' : '')}>
-                <div className='flex justify-between items-center w-[full] py-[3.2rem] px-[4.6rem] bg-regal-white rounded-[4rem]'>
+        <header onPointerMove={() => setIsHideHeader(false)} className={cn(
+            'absolute left-0 w-full z-[1]',
+            'max-mobile:relative'
+        )}>
+            <Container className={
+                cn(
+                    'transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh]',
+                    isHideHeader && canHide ? 'translate-y-[-150%]' : '',
+                    'max-mobile:m-[0]'
+                )}>
+                <div className={cn(
+                    'flex justify-between items-center w-full py-[3.2rem] px-[4.6rem] bg-regal-white rounded-[4rem]',
+                    'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none'
+                )}>
                     <Link href={'/'}>
-                        <Logo className='w-[12.055rem] h-[5.6rem]' color='#171717' />
+                        <Logo className={cn(
+                            'w-[12.055rem] h-[5.6rem]',
+                            'max-mobile:w-[9rem] max-mobile:h-[4.181rem]'
+                        )} color='#171717' />
                     </Link>
-                    <NavigationMenu>
+                    <NavigationMenu className={cn(
+                        'max-mobile:hidden'
+                    )}>
                         <NavigationMenuList>
                             {
                                 links.map((link, index) => {

@@ -9,6 +9,10 @@ const config: Config = {
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
+		screens: {
+			'mobile': '540px',
+			'tablet': '1024px',
+		},
 		extend: {
 			fontFamily: {
 				'montserrat': ["var(--font-montserrat)"]
