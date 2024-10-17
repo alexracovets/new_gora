@@ -75,7 +75,7 @@ export const LocationSection: React.FC = () => {
                                     </div>
                                     <div className={cn(
                                         'text-[2.2rem] font-[600]',
-                                        'max-mobile:text-[1.6rem]'
+                                        'max-mobile:text-[1.6rem] max-mobile:leading-[1.95rem]'
                                     )}>
                                         {item.info}
                                     </div>

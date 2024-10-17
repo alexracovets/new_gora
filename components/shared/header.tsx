@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import { Fade as Hamburger } from 'hamburger-react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -16,6 +17,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ canHide }) => {
     const isHideHeader = useHideHeader(state => state.isHideHeader);
     const setIsHideHeader = useHideHeader(state => state.setIsHideHeader);
+    const [isOpen, setOpen] = useState(false);
 
     const links = [
         {
@@ -78,6 +80,11 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                             }
                         </NavigationMenuList>
                     </NavigationMenu>
+                    <div className={cn(
+                        'border-[2px] border-regal-black rounded-[10px]'
+                    )}>
+                        <Hamburger toggled={isOpen} toggle={setOpen} color="#171717" size={18} />
+                    </div>
                 </div>
             </Container>
         </header>
