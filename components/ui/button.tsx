@@ -10,7 +10,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-[2.2rem] font-[600] px-[3rem] py-[1.65rem]",
+        default: cn(
+          "text-[2.2rem] font-[600] px-[3rem] py-[1.65rem]",
+          "max-mobile:text-[1.4rem] max-mobile:px-[1rem] max-mobile:py-[1rem]"
+        ),
         destructive: "",
         outline: "",
         secondary: "text-[2.2rem] text-regal-white font-[600] px-[2rem] py-[1rem] border-regal-white",
@@ -45,7 +48,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}>
         {props.children}
-        <MdArrowOutward size='2.8rem' className="ml-[.8rem]" />
+        <MdArrowOutward className={cn(
+          'w-[2.8rem] h-[2.8rem] ml-[.8rem]',
+          'max-mobile:w-[1.4rem] max-mobile:h-[1.4rem] max-mobile:ml-[.2rem]'
+        )} />
       </Comp>
     )
   }

@@ -3,11 +3,11 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-interface Props { className?: string; }
+interface Props { className?: string; id?: string }
 
-export const Container: React.FC<React.PropsWithChildren<Props>> = ({ className, children }) => {
+export const Container: React.FC<React.PropsWithChildren<Props>> = ({ className, id, children }) => {
     return (
-        <div className={cn(
+        <div id={id} className={cn(
             'mx-[8.8rem]',
             'max-mobile:mx-[2rem]',
             className)}>{children}</div>

@@ -7,6 +7,9 @@ interface Props { className?: string; }
 
 export const Section: React.FC<React.PropsWithChildren<Props>> = ({ className, children }) => {
     return (
-        <section className={cn('py-[10rem] relative z-[0]', className)}>{children}</section>
+        <section className={cn(
+            'py-[10rem] relative z-[0]',
+            'max-mobile:py-[5rem]',
+            className)}> {children}</section >
     );
 };
