@@ -13,7 +13,7 @@ export default function InitLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <link data-rh="true" rel="icon" href='/favicon.ico' />
+        <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
       <body className={`${montserrat.variable} text-regal-black`}>
         {children}
