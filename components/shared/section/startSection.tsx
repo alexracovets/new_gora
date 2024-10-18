@@ -10,7 +10,7 @@ export const StartSection: React.FC = () => {
     return (
         <Section className={cn(
             'bg-regal-green min-h-[100dvh] flex justify-start items-end',
-            'max-mobile:min-h-0'
+            'max-mobile:min-h-0 max-mobile:pt-[12rem]'
         )}>
             <Container>
                 <div className={cn(

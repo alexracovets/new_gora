@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { MdOutlineLocalPhone, MdOutlineAlternateEmail } from "react-icons/md";
-import { FaYoutube, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+// import { FaYoutube } from "react-icons/fa";
 import Link from 'next/link';
 
 import { Container } from "@/components/shared/container";
@@ -79,19 +80,19 @@ export const Footer: React.FC = () => {
                         </div>
                     </Link>
                     <div className='flex justify-start items-center gap-[2.4rem]'>
-                        <Link href={"/"} className='flex justify-start items-center'>
+                        {/* <Link href={"/"} className='flex justify-start items-center'>
                             <FaYoutube color='#fff' className={cn(
                                 'w-[4rem] h-[4rem]',
                                 'max-mobile:w-[2rem] max-mobile:h-[2rem]'
                             )} />
-                        </Link>
-                        <Link href={"/"} className='flex justify-start items-center'>
+                        </Link> */}
+                        <Link href={"https://www.instagram.com/pilgrimagecenter/https://www.instagram.com/pilgrimagecenter/"} className='flex justify-start items-center'>
                             <FaFacebook color='#fff' className={cn(
                                 'w-[4rem] h-[4rem]',
                                 'max-mobile:w-[2rem] max-mobile:h-[2rem]'
                             )} />
                         </Link>
-                        <Link href={"/"} className='flex justify-start items-center'>
+                        <Link href={"https://www.facebook.com/pilgrimage.center.ocu"} className='flex justify-start items-center'>
                             <FaInstagram color='#fff' className={cn(
                                 'w-[4rem] h-[4rem]',
                                 'max-mobile:w-[2rem] max-mobile:h-[2rem]'

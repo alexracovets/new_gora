@@ -23,32 +23,27 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
     const links = [
         {
             href: '/',
-            achor: '',
             name: 'Про проєкт',
             border: false
         },
         {
-            href: '/',
-            achor: '#work',
+            href: '/#work',
             name: 'Як це працює',
             border: false
         },
         {
             href: '/mapa',
-            achor: '',
             name: 'Мапа',
             border: false
         },
         {
             href: '/location',
-            achor: '',
             name: 'Локації',
             border: false
         },
         {
 
-            href: '/',
-            achor: '#contact',
+            href: '/#contact',
             name: 'Контакти',
             border: true
         }
@@ -63,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                     'transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh] w-full',
                     isHideHeader ? 'max-mobile:absolute' : 'max-mobile:relative',
                     isHideHeader && canHide ? 'translate-y-[-150%] max-mobile:translate-y-[0%]' : '',
-                    'max-mobile:m-[0]'
+                    'max-mobile:m-[0] max-mobile:px-0'
                 )}>
                 <div className={cn(
                     'flex justify-between items-center py-[3.2rem] px-[4.6rem] rounded-[4rem] transition-all duration-300 ease-out',

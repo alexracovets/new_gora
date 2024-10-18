@@ -85,11 +85,13 @@ export const ChooseSection: React.FC = () => {
                         )}>
                             Підтримайте відновлення осередку на Афоні
                         </div>
-                        <Button className={cn(
-                            'max-mobile:hidden'
-                        )}>
-                            Стати опікуном
-                        </Button>
+                        <Link href={'/mapa'}>
+                            <Button className={cn(
+                                'max-mobile:hidden'
+                            )}>
+                                Стати опікуном
+                            </Button>
+                        </Link>
                     </div>
                     <div className={cn(
                         'text-[1.8rem] w-[77.1rem] leading-[2.194rem]',
@@ -112,12 +114,14 @@ export const ChooseSection: React.FC = () => {
                             Наразі на Афоні працює <Link href={'https://www.facebook.com/shumylo'} className="underline inline">Сергій Шумило</Link>, історик та дослідник Міжнародного інституту афонської спадщини України ні Афоні, який знаходить десятки архівних книг, що засвідчують фінансову підтримку запорізьких козаків у будівництві скитів та келій.
                         </p>
                         <p className="max-mobile:mb-[3rem]"><b className="font-[600]">Давайте продовжувати традицію наших предків!</b></p>
-                        <Button className={cn(
-                            'hidden',
-                            'max-mobile:flex'
-                        )}>
-                            Стати опікуном
-                        </Button>
+                        <Link href={'/mapa'}>
+                            <Button className={cn(
+                                'hidden',
+                                'max-mobile:flex'
+                            )}>
+                                Стати опікуном
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </Container>

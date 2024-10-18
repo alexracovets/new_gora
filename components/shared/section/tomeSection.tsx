@@ -1,12 +1,13 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import { Container } from '@/components/shared/container';
 import { Section } from '@/components/shared/section';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 
 export const TomeSection: React.FC = () => {
     return (
@@ -32,9 +33,12 @@ export const TomeSection: React.FC = () => {
                         )}>
                             Ви станете тією людиною, хто творить історію – вперше з 18 століття відбудовується осередок українства на Афоні. Відкрий свою сторінку історії!
                         </div>
-                        <Button>
-                            Переглянути локації
-                        </Button>
+                        <Link href='/location'>
+                            <Button>
+                                Переглянути локації
+                            </Button>
+                        </Link>
+
                     </div>
                     <div className={cn(
                         'flex justify-center items-center w-[77.1rem]',
