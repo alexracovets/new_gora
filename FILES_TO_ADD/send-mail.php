@@ -30,16 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'alexracovets@gmail.com';
-    $mail->Password = 'wahjojqmbwamtnum';
+    $mail->Username = 'ukraineafon@gmail.com';
+    $mail->Password = 'jhpj bluv byzr retp';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
     // От кого письмо 
-    $mail->setFrom('alexracovets@gmail.com', ' GORA');
+    $mail->setFrom('ukraineafon@gmail.com', ' GORA');
 
     // Кому письмо
-    $mail->addAddress('alexracovets@gmail.com', ' GORA');
+    $mail->addAddress('ukraineafon@gmail.com', ' GORA');
 
     // Тема письма
     $mail->Subject = 'Заявка з сайту GORA';
