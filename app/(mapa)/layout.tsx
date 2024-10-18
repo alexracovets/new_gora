@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Header } from '@/components/shared/header';
+import { Modal } from "@/components/shared/modal/modal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,6 +14,7 @@ export default function MapaLayout({ children }: Readonly<{ children: React.Reac
       <Header canHide />
       <main>
         {children}
+        <Modal />
       </main>
     </>
   );

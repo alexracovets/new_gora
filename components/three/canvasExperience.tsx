@@ -76,6 +76,7 @@ const CanvasExperience: React.FC = () => {
                 gl.outputColorSpace = THREE.SRGBColorSpace;
             }}
             frameloop="demand"
+            className=''
         >
             <Camera />
             <mesh
@@ -92,7 +93,7 @@ const CanvasExperience: React.FC = () => {
                             key={idx}
                             position={[item.x / scale, item.y / scale, 0]}
                             width={1 / scale}
-                            height={1 / scale}
+                            height={1 / scale} 
                             grid={item}
                         />
                     ))}

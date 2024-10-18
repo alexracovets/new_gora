@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
         },
         {
 
-            href: '',
+            href: '/',
             achor: '#contact',
             name: 'Контакти',
             border: true
@@ -56,17 +56,17 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
 
     return (
         <header onPointerMove={() => setIsHideHeader(false)} className={cn(
-            'absolute left-0 w-full z-[100000000000]',
-            'max-mobile:relative'
+            'absolute left-0 top-0 w-full z-[10]'
         )}>
             <Container className={
                 cn(
-                    'transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh]',
-                    isHideHeader && canHide ? 'translate-y-[-150%]' : '',
+                    'transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh] w-full',
+                    isHideHeader ? 'max-mobile:absolute' : 'max-mobile:relative',
+                    isHideHeader && canHide ? 'translate-y-[-150%] max-mobile:translate-y-[0%]' : '',
                     'max-mobile:m-[0]'
                 )}>
                 <div className={cn(
-                    'flex justify-between items-center w-full py-[3.2rem] px-[4.6rem] rounded-[4rem] transition-all duration-300 ease-out',
+                    'flex justify-between items-center py-[3.2rem] px-[4.6rem] rounded-[4rem] transition-all duration-300 ease-out',
                     'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none',
                     isOpen ? 'bg-regal-green' : 'bg-regal-white'
                 )}>
@@ -138,21 +138,8 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                                                     <NavigationMenuItem key={index} className={link.border ? 'border-[0.1rem] border-regal-black rounded-[.6rem] mt-[1rem]' : ''}>
                                                         <Link
                                                             href={link.href}
-                                                            onClick={(e) => {
-                                                                // Перевірка, чи є лінк якорем
-                                                                if (link.href.startsWith('#')) {
-                                                                    e.preventDefault(); // Вимкнути стандартну поведінку скролу
-                                                                    setOpen(false); // Закриваємо Drawer
-                                                                    setTimeout(() => {
-                                                                        // Скрол через 300 мс після закриття Drawer
-                                                                        const element = document.querySelector(link.href);
-                                                                        if (element) {
-                                                                            element.scrollIntoView({ behavior: 'smooth' });
-                                                                        }
-                                                                    }, 300); // Затримка на 300 мс
-                                                                } else {
-                                                                    setOpen(false); // Закрити Drawer для звичайних лінків
-                                                                }
+                                                            onClick={() => {
+                                                                setOpen(false);
                                                             }}
                                                             passHref
                                                             className={cn(

@@ -16,7 +16,10 @@ const buttonVariants = cva(
         ),
         destructive: "",
         outline: "",
-        secondary: "text-[2.2rem] text-regal-white font-[600] px-[2rem] py-[1rem] border-regal-white",
+        secondary: cn(
+          "text-[2.2rem] text-regal-white font-[600] px-[2rem] py-[1rem] border-regal-white",
+          "max-mobile:text-[1.4rem] max-mobile:px-[1rem] max-mobile:py-[1rem]"
+        ),
         ghost: "",
         link: "",
       },
