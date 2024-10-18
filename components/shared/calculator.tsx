@@ -17,7 +17,6 @@ export const Calculator: React.FC = () => {
 
     const openModal = () => {
         setIsModal(true);
-        console.log('1')
     }
 
     useEffect(() => {

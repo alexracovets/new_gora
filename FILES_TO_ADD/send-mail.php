@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true); 
 
     // Задаем переменные для данных из формы
-    $formName = !empty($data['formName']) ? . $data['formName'] . : '';
+    $formName = !empty($data['formName']) ? $data['formName'] : '';
     $name = !empty($data['name']) ? "<b>Ім'я: </b>". $data['name'] ."<br>" : ''; 
     $email = !empty($data['email']) ? "<b>Пошта: </b>". $data['email'] ."<br>" : '';
     $phone = !empty($data['phone']) ? "<b>Телефон: </b>". $data['phone'] ."<br>" : '';
-    $grids = !empty($data['listGrid']) ? . $data['listGrid'] . : '';
+    $grids = !empty($data['listGrid']) ? $data['listGrid'] : '';
     $message = !empty($data['message']) ? "<b>Коментар:</b> ". $data['message'] ."<br>" : '';
 
     // Создаем новый объект PHPMailer
@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Тело письма
     $mail->Body =
-    '<p><strong><h3>'.$formName'</h3></strong></p>'. 
-    '<p>'.$name.' </p>'. 
-    '<p>'.$email.'</p>'. 
-    '<p>'.$phone.'</p>'. 
-    '<ul>'.$grids. '</ul>'.
-    '<p>'.$message.'</p>'
-    ;
+    '<p><strong><h3>'.$formName.'</h3></strong></p>'.
+    '<p>'.$name.' </p>'.
+    '<p>'.$email.'</p>'.
+    '<p>'.$phone.'</p>'.
+    '<b>Обрані комірки:</b><br>'.
+    ''.$grids.'</br>'.
+    '<p>'.$message.'</p>';
 
     // Отправляем письмо
     if ($mail->send()) {

@@ -25,7 +25,6 @@ export const Modal: React.FC = () => {
         email: '',
         phone: '',
         message: '',
-        listGrid: <></>
     });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,6 +36,10 @@ export const Modal: React.FC = () => {
 
     const handleSubmitContactForm = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const listGridHTML = activeGrids
+            .map((item: GridItem) => `<li>Комірка з позиціями x:${item.x}, y:${item.y}</li>`)
+            .join('');
+
         const response = await fetch('/send-mail.php', {
             method: 'POST',
             headers: {
@@ -47,7 +50,8 @@ export const Modal: React.FC = () => {
                 email: formData.email,
                 phone: formData.phone,
                 message: formData.message,
-                formName: "Форма з сайту ГОРА"
+                formName: "Форма з сайту ГОРА",
+                listGrid: `<ul>${listGridHTML}</ul>`
             }),
         });
 
