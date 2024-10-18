@@ -39,8 +39,8 @@ export const Calculator: React.FC = () => {
 
     return (
         <div className={cn(
-            'absolute left-[8.8rem] bottom-[2dvh] flex justify-between items-center w-[133.9rem] py-[2rem] px-[2rem] bg-regal-black rounded-[2.5rem]',
-            'max-mobile:left-0 max-mobile:bottom-0 max-mobile:w-full max-mobile:flex-col'
+            'absolute left-[8.8rem] bottom-[2dvh] flex justify-between items-center w-[133.9rem] py-[1rem] px-[2rem] bg-regal-black rounded-[2.5rem]',
+            'max-mobile:left-0 max-mobile:bottom-0 max-mobile:w-full max-mobile:flex-col max-mobile:rounded-none max-mobile:rounded-t-[1rem]'
         )}>
             <div className={cn(
                 'flex justify-start items-center gap-[2rem]',
@@ -63,11 +63,11 @@ export const Calculator: React.FC = () => {
                     }
                     return (
                         <div key={index} className={cn(
-                            'flex flex-col justify-center items-center w-[10rem] h-[10rem] rounded-[2rem] bg-[#F7FBFE]',
+                            'flex flex-col justify-center items-center w-[9rem] h-[9rem] rounded-[2rem] bg-[#F7FBFE]',
                             'max-mobile:w-[6.1rem] max-mobile:h-[3.2rem] max-mobile:flex-row  max-mobile:rounded-[.6rem]',
                             checkColor())}>
                             <div className={cn(
-                                'text-[1.5rem] font-[700] mb-[.6rem] leading-[1]',
+                                'text-[1.5rem] font-[700] mb-[.2rem] leading-[1]',
                                 'max-mobile:text-[1rem] max-mobile:m-0 max-mobile:mr-[.6rem]'
                             )}>
                                 {section.price + ' $'}
@@ -89,8 +89,8 @@ export const Calculator: React.FC = () => {
                 )}>
                     Вартість: {priceTotal} $
                 </div>
-                <div onClick={openModal}>
-                    <Button variant={'secondary'}>
+                <div onClick={openModal} className='max-mobile:w-full'>
+                    <Button variant={'secondary'} className='max-mobile:w-full'>
                         Зробити внесок
                     </Button>
                 </div>

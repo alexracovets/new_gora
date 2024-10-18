@@ -55,19 +55,19 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
         )}>
             <Container className={
                 cn(
-                    'transition-all duration-300 ease-in-out translate-y-[0%] mt-[3.6dvh] w-full',
+                    'transition-all duration-300 ease-in-out translate-y-[0%] mt-[2dvh] w-full',
                     isHideHeader ? 'max-mobile:absolute' : 'max-mobile:relative',
                     isHideHeader && canHide ? 'translate-y-[-150%] max-mobile:translate-y-[0%]' : '',
                     'max-mobile:m-[0] max-mobile:px-0'
                 )}>
                 <div className={cn(
-                    'flex justify-between items-center py-[3.2rem] px-[4.6rem] rounded-[4rem] transition-all duration-300 ease-out',
+                    'flex justify-between items-center py-[1.5rem] px-[4.6rem] rounded-[2rem] transition-all duration-300 ease-out',
                     'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none',
                     isOpen ? 'bg-regal-green' : 'bg-regal-white'
                 )}>
                     <Link href={'/'} className='realtive z-[100]'>
                         <Logo className={cn(
-                            'w-[12.055rem] h-[5.6rem]',
+                            'w-[9rem] h-[4.181rem]',
                             'max-mobile:w-[9rem] max-mobile:h-[4.181rem]'
                         )} color='#171717' />
                     </Link>

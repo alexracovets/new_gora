@@ -26,8 +26,9 @@ const config: Config = {
 				'grid-100': 'rgb(36,118,22)',
 				'grid-200': 'rgb(255,235,59)',
 				'grid-300': 'rgb(233,30,99)',
-				'grid-500': 'rgb(156,39,176)'
-			},
+				'grid-500': 'rgb(156,39,176)',
+				'bg-Modal': 'rgb(55 65 81 / 30%)'
+			}
 		}
 	},
 	plugins: [tailwindcssAnimate],
