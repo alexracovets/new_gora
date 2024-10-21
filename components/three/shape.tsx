@@ -1,13 +1,16 @@
 'use client';
 
-import { Box3, DoubleSide, Vector3, Object3D } from 'three';
-import React, { useEffect, useRef, useState } from 'react';
+import { DoubleSide, TextureLoader } from 'three';
+import React, { useRef } from 'react';
+import { Box3, Vector3, Object3D } from 'three';
+import {  useEffect, useState } from 'react';
 import { SVGLoader } from 'three/examples/jsm/Addons.js';
 import { useLoader } from '@react-three/fiber';
 import { Plane } from '@react-three/drei';
 
 export const Shape: React.FC = () => {
     const { paths } = useLoader(SVGLoader, '/svg/mask.svg');
+    const texture = useLoader(TextureLoader, '/img/mask.png');
     const svgRef = useRef(null);
     const planeRef = useRef(null);
     const [svgScale, setSvgScale] = useState(1);
@@ -50,7 +53,9 @@ export const Shape: React.FC = () => {
 
     return (
         <mesh position={[0, 0, 0.001]}>
-            <Plane ref={planeRef} args={[46 / scale, 35 / scale]} visible={false} position={[0, 0, 0]} />
+            <Plane ref={planeRef} args={[46 / scale, 35 / scale]} position={[0, 0, 0]}>
+                <meshBasicMaterial attach="material" map={texture} side={DoubleSide} transparent={true} />
+            </Plane>
             {paths.length > 0 && (
                 <group ref={svgRef} scale={svgScale} position={svgPosition} rotation={[Math.PI, 0, 0]}>
                     {paths.map((path, index) => (
@@ -59,7 +64,7 @@ export const Shape: React.FC = () => {
                             <meshBasicMaterial color={path.color} side={DoubleSide} />
                         </mesh>
                     ))}
-                </group>
+                </group> 
             )}
         </mesh>
     );
