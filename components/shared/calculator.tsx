@@ -40,10 +40,12 @@ export const Calculator: React.FC = () => {
     return (
         <div className={cn(
             'absolute left-[8.8rem] bottom-[2dvh] flex justify-between items-center w-[133.9rem] py-[1rem] px-[2rem] bg-regal-black rounded-[2.5rem]',
+            'max-tablet:left-[2.9rem] max-tablet:w-[68.7rem] max-tablet:rounded-[1.5rem] max-tablet:py-[2rem]',
             'max-mobile:left-0 max-mobile:bottom-0 max-mobile:w-full max-mobile:flex-col max-mobile:rounded-none max-mobile:rounded-t-[1rem]'
         )}>
             <div className={cn(
                 'flex justify-start items-center gap-[2rem]',
+                'max-tablet:gap-[1.2rem]',
                 'max-mobile:w-full max-mobile:gap-[1.133rem] max-mobile:mb-[3rem]'
             )}>
                 {sections.map((section: GridItem, index) => {
@@ -64,16 +66,19 @@ export const Calculator: React.FC = () => {
                     return (
                         <div key={index} className={cn(
                             'flex flex-col justify-center items-center w-[9rem] h-[9rem] rounded-[2rem] bg-[#F7FBFE]',
+                            'max-tablet:w-[6rem] max-tablet:h-[6rem] max-tablet:rounded-[1rem]',
                             'max-mobile:w-[6.1rem] max-mobile:h-[3.2rem] max-mobile:flex-row  max-mobile:rounded-[.6rem]',
                             checkColor())}>
                             <div className={cn(
                                 'text-[1.5rem] font-[700] mb-[.2rem] leading-[1]',
+                                'max-tablet:text-[1rem] max-tablet:m-0 max-tablet:mb-[.4rem]',
                                 'max-mobile:text-[1rem] max-mobile:m-0 max-mobile:mr-[.6rem]'
                             )}>
                                 {section.price + ' $'}
                             </div>
                             <div className={cn(
                                 'text-[4rem] font-[300] leading-[1]',
+                                'max-tablet:text-[2.6rem]',
                                 'max-mobile:text-[1rem]'
                             )}>
                                 x{section.count}
@@ -82,10 +87,14 @@ export const Calculator: React.FC = () => {
                     );
                 })}
             </div>
-            <div className='flex flex-col justify-start items-start min-w-[28rem]'>
+            <div className={cn(
+                'flex flex-col justify-start items-start min-w-[28rem]',
+                'max-tablet:min-w-0'
+            )}>
                 <div className={cn(
-                    'text-[3rem] text-regal-white font-[300] mb-[1rem]',
-                    'max-mobile:leading-[1] max-mobile:mb-[2.6rem]'
+                    'text-[3rem] text-regal-white font-[300] mb-[1rem] leading-[1]',
+                    'max-tablet:text-[1.6rem] max-tablet:mb-[1.2rem]',
+                    'max-mobile:mb-[2.6rem]'
                 )}>
                     Вартість: {priceTotal} $
                 </div>
