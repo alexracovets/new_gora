@@ -1,7 +1,7 @@
 'use client';
 
 import { MapControls as MapControlsType } from 'three-stdlib';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { MapControls } from '@react-three/drei';
 
 export const Camera: React.FC = () => {
@@ -19,7 +19,7 @@ export const Camera: React.FC = () => {
         }
     };
 
-    const calculateDynamicMaxPan = () => {
+    const calculateDynamicMaxPan = useCallback(() => {
         if (controlsRef.current) {
             const currentZoom = controlsRef.current.object.position.y;
             const normalizedZoom = (maxZoom - currentZoom - minZoom);
@@ -28,9 +28,9 @@ export const Camera: React.FC = () => {
             return dynamicPan;
         }
         return basePan;
-    };
-
-    const checkPosition = () => {
+    }, [basePan, maxZoom, minZoom]);
+    
+    const checkPosition = useCallback(() => {
         if (controlsRef.current) {
             const target = controlsRef.current.target;
             const position = controlsRef.current.object.position;
@@ -43,8 +43,8 @@ export const Camera: React.FC = () => {
             position.x = Math.max(-maxPan, Math.min(maxPan, position.x));
             position.z = Math.max(-maxPan, Math.min(maxPan, position.z));
         }
-    };
-    
+    }, [calculateDynamicMaxPan]);
+
     useEffect(() => {
         updateBasePan();
 
@@ -57,7 +57,7 @@ export const Camera: React.FC = () => {
 
     useEffect(() => {
         checkPosition();
-    }, [basePan])
+    }, [basePan, checkPosition]);
 
     return (
         <MapControls
