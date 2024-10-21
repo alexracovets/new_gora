@@ -1,15 +1,23 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { MapControls } from '@react-three/drei';
 import { MapControls as MapControlsType } from 'three-stdlib';
+import React, { useEffect, useRef, useState } from 'react';
+import { MapControls } from '@react-three/drei';
 
 export const Camera: React.FC = () => {
     const controlsRef = useRef<MapControlsType | null>(null);
-    const basePan = 3;  // Базове обмеження для панорамування (це мінімум)
+    const [basePan, setBasePan] = useState(3); // Базове обмеження для панорамування (це мінімум)
     const maxZoom = 5.5; // Максимальний зум (найближче)
     const minZoom = 1;   // Мінімальний зум (найдалі)
 
+    const updateBasePan = () => {
+        const mediaQuery = window.matchMedia('(max-width: 540px)');
+        if (mediaQuery.matches) {
+            setBasePan(4);
+        } else {
+            setBasePan(3);
+        }
+    };
 
     const calculateDynamicMaxPan = () => {
         if (controlsRef.current) {
@@ -36,6 +44,20 @@ export const Camera: React.FC = () => {
             position.z = Math.max(-maxPan, Math.min(maxPan, position.z));
         }
     };
+    
+    useEffect(() => {
+        updateBasePan();
+
+        window.addEventListener('resize', updateBasePan);
+
+        return () => {
+            window.removeEventListener('resize', updateBasePan);
+        };
+    }, []);
+
+    useEffect(() => {
+        checkPosition();
+    }, [basePan])
 
     return (
         <MapControls

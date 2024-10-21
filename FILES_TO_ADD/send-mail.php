@@ -6,12 +6,12 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-// Проверяем, была ли отправлена форма
+// Перевіряємо, чи була відправлена ​​форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Зчитуємо JSON дані з тіла запиту
     $data = json_decode(file_get_contents('php://input'), true); 
 
-    // Задаем переменные для данных из формы
+    // Задаємо змінні для даних форми
     $formName = !empty($data['formName']) ? $data['formName'] : '';
     $name = !empty($data['name']) ? "<b>Ім'я: </b>". $data['name'] ."<br>" : ''; 
     $email = !empty($data['email']) ? "<b>Пошта: </b>". $data['email'] ."<br>" : '';
@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $grids = !empty($data['listGrid']) ? $data['listGrid'] : '';
     $message = !empty($data['message']) ? "<b>Коментар:</b> ". $data['message'] ."<br>" : '';
 
-    // Создаем новый объект PHPMailer
+    // Створюємо новий об'єкт PHPMailer
     $mail = new PHPMailer(true);
     $mail->CharSet = 'UTF-8';
     $mail->setLanguage('uk', 'PHPMailer/language/');
     $mail->IsHTML(true);
 
-    // Настройки SMTP
+    // Налаштування SMTP
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -35,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    // От кого письмо 
+    // Від кого лист 
     $mail->setFrom('ukraineafon@gmail.com', ' GORA');
 
-    // Кому письмо
+    // Кому лист
     $mail->addAddress('ukraineafon@gmail.com', ' GORA');
 
-    // Тема письма
+    // Тема листа
     $mail->Subject = 'Заявка з сайту GORA';
 
-    // Тело письма
+    // Тіло листа
     $mail->Body =
     '<p><strong><h3>'.$formName.'</h3></strong></p>'.
     '<p>'.$name.' </p>'.
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ''.$grids.'</br>'.
     '<p>'.$message.'</p>';
 
-    // Отправляем письмо
+    // Надсилаємо лист
     if ($mail->send()) {
         echo 'Ваше повідомлення надіслане!';
     } else {

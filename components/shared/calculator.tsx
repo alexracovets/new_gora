@@ -89,7 +89,7 @@ export const Calculator: React.FC = () => {
             </div>
             <div className={cn(
                 'flex flex-col justify-start items-start min-w-[28rem]',
-                'max-tablet:min-w-0'
+                'max-tablet:min-w-0 max-tablet:w-full'
             )}>
                 <div className={cn(
                     'text-[3rem] text-regal-white font-[300] mb-[1rem] leading-[1]',

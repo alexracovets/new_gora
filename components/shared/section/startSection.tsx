@@ -12,7 +12,7 @@ export const StartSection: React.FC = () => {
             'bg-regal-green flex justify-start items-start pt-[33.1rem]',
             'max-tablet:pt-[16.2rem] max-tablet:pb-[8rem]',
             'max-mobile:min-h-0 max-mobile:pt-[12rem]'
-        )}>
+        )} id="start">
             <Container>
                 <div className={cn(
                     'mb-[7.5rem]',
