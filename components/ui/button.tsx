@@ -6,7 +6,7 @@ import { MdArrowOutward } from "react-icons/md";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "flex justify-center items-center border-[0.1rem] border-regal-black",
+  "flex justify-center items-center border-[0.1rem] border-regal-black bg-transperant",
   {
     variants: {
       variant: {
@@ -47,16 +47,27 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const [isHover, setIsHover] = React.useState(false);
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
+        onPointerEnter={() => setIsHover(true)}
+        onPointerLeave={() => setIsHover(false)}
         ref={ref}>
-        {props.children}
+        <span
+          className={cn(
+            'transition-all duration-300 ease-in',
+            isHover ? 'translate-x-[2rem]' : 'translate-x-[0rem]'
+          )}
+        >
+          {props.children}
+        </span>
         <MdArrowOutward className={cn(
-          'w-[2.8rem] h-[2.8rem] ml-[.8rem]',
+          'w-[2.8rem] h-[2.8rem] ml-[.8rem] transition-all duration-300 ease-out delay-300',
           'max-tablet:w-[1.6rem] max-tablet:h-[1.6rem] max-tablet:ml-[.4rem]',
-          'max-mobile:w-[1.4rem] max-mobile:h-[1.4rem] max-mobile:ml-[.2rem]'
+          'max-mobile:w-[1.4rem] max-mobile:h-[1.4rem] max-mobile:ml-[.2rem]',
+          isHover ? 'opacity-[0] translate-x-[3rem] translate-y-[-3rem]' : 'opacity-[1] translate-x-[0rem] translate-y-[0rem]'
         )} />
       </Comp>
     )

@@ -80,11 +80,12 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                             {
                                 links.map((link, index) => {
                                     return (
-                                        <NavigationMenuItem key={index}>
+                                        <NavigationMenuItem key={index} className={link.border ? 'border-[0.1rem] border-regal-black rounded-[1rem] ml-[1.4rem]' : ''}>
                                             <Link href={link.href} passHref className={cn(
                                                 'text-[1.8rem] p-[1.4rem] mx-[0.1rem]',
-                                                'max-tablet:text-[1rem] max-tablet: p-[.8rem]'
-                                            )}>
+                                                'max-tablet:text-[1rem] max-tablet: p-[.8rem]',
+                                                `hover:font-[600] before:block before:content-[attr(title)] before:font-[600] before:h-0 before:overflow-hidden before:invisible`
+                                            )} title={link.name}>
                                                 {link.name}
                                             </Link>
                                         </NavigationMenuItem>
