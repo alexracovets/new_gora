@@ -62,12 +62,14 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                 )}>
                 <div className={cn(
                     'flex justify-between items-center py-[1.5rem] px-[4.6rem] rounded-[2rem] transition-all duration-300 ease-out',
+                    'max-tablet:px-[2.2rem] rounded-[2rem]',
                     'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none',
                     isOpen ? 'bg-regal-green' : 'bg-regal-white'
                 )}>
                     <Link href={'/'} className='realtive z-[100]'>
                         <Logo className={cn(
                             'w-[9rem] h-[4.181rem]',
+                            'max-tablet:w-[5.932rem] max-tablet:h-[2.756rem]',
                             'max-mobile:w-[9rem] max-mobile:h-[4.181rem]'
                         )} color='#171717' />
                     </Link>
@@ -79,7 +81,10 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                                 links.map((link, index) => {
                                     return (
                                         <NavigationMenuItem key={index}>
-                                            <Link href={link.href} passHref className='text-[1.8rem] p-[1.4rem] mx-[0.1rem]'>
+                                            <Link href={link.href} passHref className={cn(
+                                                'text-[1.8rem] p-[1.4rem] mx-[0.1rem]',
+                                                'max-tablet:text-[1rem] max-tablet: p-[.8rem]'
+                                            )}>
                                                 {link.name}
                                             </Link>
                                         </NavigationMenuItem>

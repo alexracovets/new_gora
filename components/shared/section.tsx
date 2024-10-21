@@ -9,7 +9,7 @@ export const Section: React.FC<React.PropsWithChildren<Props>> = ({ className, c
     return (
         <section className={cn(
             'py-[10rem] relative z-[0]',
-            'max-mobile:py-[5rem]',
+            'max-tablet:py-[5rem]',
             className)}> {children}</section >
     );
 };

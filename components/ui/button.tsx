@@ -6,18 +6,19 @@ import { MdArrowOutward } from "react-icons/md";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "flex justify-center items-center border-[0.1rem] border-regal-black rounded-[1rem]",
+  "flex justify-center items-center border-[0.1rem] border-regal-black",
   {
     variants: {
       variant: {
         default: cn(
-          "text-[2.2rem] font-[600] px-[3rem] py-[1.65rem]",
+          "text-[2.2rem] font-[600] px-[3rem] py-[1.65rem] rounded-[1rem]",
+          "max-tablet:text-[1.4rem] max-tablet:px-[1.6rem] max-tablet:py-[.8rem] max-tablet:rounded-[.6rem]",
           "max-mobile:text-[1.4rem] max-mobile:px-[1rem] max-mobile:py-[1rem]"
         ),
         destructive: "",
         outline: "",
         secondary: cn(
-          "text-[2.2rem] text-regal-white font-[600] px-[2rem] py-[1rem] border-regal-white",
+          "text-[2.2rem] text-regal-white font-[600] px-[2rem] py-[1rem] border-regal-white rounded-[1rem]",
           "max-mobile:text-[1.4rem] max-mobile:px-[1rem] max-mobile:py-[1rem]"
         ),
         ghost: "",
@@ -53,6 +54,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {props.children}
         <MdArrowOutward className={cn(
           'w-[2.8rem] h-[2.8rem] ml-[.8rem]',
+          'max-tablet:w-[1.6rem] max-tablet:h-[1.6rem] max-tablet:ml-[.4rem]',
           'max-mobile:w-[1.4rem] max-mobile:h-[1.4rem] max-mobile:ml-[.2rem]'
         )} />
       </Comp>

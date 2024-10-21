@@ -24,7 +24,13 @@ html {
   font-size: calc(100vw / 1512 * 10);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
+  html {
+    font-size: calc(100vw / 744 * 10);
+  }
+}
+
+@media (max-width: 539px) {
   html {
     font-size: calc(100vw / 320 * 10);
   }

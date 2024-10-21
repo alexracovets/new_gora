@@ -4,6 +4,7 @@ import React, { useRef, memo, useCallback, useEffect, useState } from 'react';
 import { Color, ShaderMaterial } from 'three';
 
 import useStoreGrid from '@/store/useStoreGrid';
+// import { Text } from '@react-three/drei';
 
 interface Grid {
     x: number;
@@ -57,6 +58,9 @@ const RoundedPlane = memo(({ position, width, height, grid }: { position: [numbe
     return (
         <mesh position={position} matrixWorldNeedsUpdate matrixAutoUpdate onClick={() => setActiveGrids(grid)}>
             <planeGeometry args={[width, height, 1, 1]} />
+            {/* <Text>
+                1
+            </Text> */}
             <shaderMaterial
                 ref={materialRef}
                 uniforms={{

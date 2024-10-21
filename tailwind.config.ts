@@ -10,8 +10,8 @@ const config: Config = {
 	],
 	theme: {
 		screens: {
-			'mobile': '540px',
 			'tablet': '1024px',
+			'mobile': '540px',
 		},
 		extend: {
 			fontFamily: {

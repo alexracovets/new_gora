@@ -1,4 +1,7 @@
+import { Suspense } from 'react';
 import { Montserrat } from 'next/font/google';
+
+import { FacebookPixelEvents } from '@/components/shared/pixel-events';
 
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '600', '700'],
@@ -17,6 +20,9 @@ export default function InitLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={`${montserrat.variable} text-regal-black`}>
         {children}
+        <Suspense fallback={null}>
+          <FacebookPixelEvents />
+        </Suspense>
       </body>
     </html>
   );
