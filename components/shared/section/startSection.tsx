@@ -1,10 +1,12 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+import Link from "next/link";
 import React from 'react';
 
 import { Container } from '@/components/shared/container';
 import { Section } from '@/components/shared/section';
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
 
 export const StartSection: React.FC = () => {
     return (
@@ -32,6 +34,14 @@ export const StartSection: React.FC = () => {
                     )}>
                         “Ділити чесноту з іншими <br /> означає її багаторазово множити”
                     </p>
+                    <Link href={'/mapa'} className={cn(
+                        'flex justify-end w-full',
+                        'max-mobile:justify-start'
+                    )}>
+                        <Button className="mt-[5rem] bg-regal-white">
+                            Стати опікуном
+                        </Button>
+                    </Link>
                 </div>
             </Container>
         </Section>
