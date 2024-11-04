@@ -12,12 +12,11 @@ import { cn } from "@/lib/utils";
 export const ChooseSection: React.FC = () => {
     const iconStyle = "w-[2.5rem] h-[2.5rem] max-tablet:w-[1.5rem] max-tablet:h-[1.5rem] max-mobile:w-[1.1rem] max-mobile:h-[1.1rem]";
     const iconColor = '#171717';
-    const hideHR = "max-tablet:hidden";
 
     const numberList = [
         {
             number: 1,
-            info: <span className="max-tablet:text-nowrap">Обери ділянку</span>,
+            info: 'Обери площу опікунства',
             icon: <FaSearchLocation color={iconColor} className={iconStyle} />
         },
         {
@@ -32,7 +31,7 @@ export const ChooseSection: React.FC = () => {
         },
         {
             number: 4,
-            info: <>Отримай <br className={hideHR} /> сертифікат та <br className={hideHR} /> подарунок</>,
+            info: 'Отримай Три  подарунки',
             icon: <FaGift color={iconColor} className={iconStyle} />
         }
     ]
