@@ -33,8 +33,7 @@ export const TomeSection: React.FC = () => {
                         </div>
                         <div className={cn(
                             'text-[2.5rem] leading-[3.5rem] font-[300] mb-[3rem]',
-                            'max-tablet:text-[1.2rem] max-tablet:leading-[1.68rem]',
-                            'max-mobile:leading-[1.463rem]'
+                            'max-tablet:text-[1.2rem] max-tablet:leading-[1.68rem]'
                         )}>
                             <p className='mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]'>
                                 Ви станете тією людиною, хто творить історію – вперше з 18 століття відбудовуєте осередок українства на Афоні. Відкрий свою сторінку історії!
@@ -48,7 +47,6 @@ export const TomeSection: React.FC = () => {
                                 Переглянути локації
                             </Button>
                         </Link>
-
                     </div>
                     <div className={cn(
                         'flex justify-center items-center w-[77.1rem]',

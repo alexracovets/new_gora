@@ -37,10 +37,61 @@ export const ChooseSection: React.FC = () => {
         }
     ]
 
+    const placeList = [
+        {
+            ua: 'Паломницький  Будинок.',
+            en: 'Pilgrimage house.'
+        },
+        {
+            ua: 'Виноградник.',
+            en: 'Vineyard.'
+        },
+        {
+            ua: 'Архондарик.',
+            en: 'Archondaric (guest house).'
+        },
+        {
+            ua: 'Сповідальний будинок.',
+            en: 'Confessional house.'
+        },
+        {
+            ua: 'Келія Святих Архангелів.',
+            en: 'Cell of the Holy Archangels.'
+        },
+        {
+            ua: 'Монаше кладовище.',
+            en: 'Monks cemetery.'
+        },
+        {
+            ua: 'Печера Героїв.',
+            en: 'Cave of heroes.'
+        },
+        {
+            ua: 'Терасні Сходи.',
+            en: 'Terrace stairs.'
+        },
+        {
+            ua: 'Лісова оглядова тераса.',
+            en: 'Forest viewing terrace.'
+        },
+        {
+            ua: 'Башня-альтанка.',
+            en: 'Gazebo Tower.'
+        },
+        {
+            ua: 'Сонячні панелі.',
+            en: 'Solar Panels.'
+        },
+        {
+            ua: 'Лісове Джерело.',
+            en: 'Forest Spring.'
+        }
+    ]
+
     return (
         <Section className={cn(
             'rounded-[4rem] bg-regal-white mt-[-4rem]',
-            'max-tablet:rounded-[2rem] max-tablet:mt-[-2rem] max-tablet:pb-0',
+            'max-tablet:rounded-[2rem] max-tablet:mt-[-2rem]',
             'max-mobile:rounded-[1rem] max-mobile:mt-[-1rem] max-mobile:pb-[5rem]'
         )}>
             <Container id='work'>
@@ -78,7 +129,7 @@ export const ChooseSection: React.FC = () => {
                 <div className={cn(
                     'flex justify-between items-start my-[10rem]',
                     'max-tablet:my-[5rem]',
-                    'max-mobile:flex-col max-mobile:mt-[5rem] max-mobile:mb-0'
+                    'max-mobile:flex-col max-mobile:mt-[5rem]'
                 )}>
                     <div className={cn(
                         'flex flex-col justify-start items-start w-[54.5rem]',
@@ -101,9 +152,9 @@ export const ChooseSection: React.FC = () => {
                         </Link>
                     </div>
                     <div className={cn(
-                        'text-[1.8rem] w-[77.1rem] leading-[2.194rem]',
-                        'max-tablet:text-[1rem] max-tablet:w-[40.616rem] max-tablet:leading-[1.219rem]',
-                        'max-mobile:text-[1.2rem] max-mobile:w-full max-mobile:leading-[1.463rem]'
+                        'text-[2.5rem] w-[77.1rem] leading-[3.5rem]',
+                        'max-tablet:text-[1.2rem] max-tablet:w-[40.616rem] max-tablet:leading-[1.68rem]',
+                        'max-mobile:w-full'
                     )}>
                         <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
                             Відбудова україномовного осередку на Афоні – це народний проєкт реконструкції та розбудови, а тому кожен бажаючий може взяти участь у ньому та внести свою лепту у відродження, стати опікуном!
@@ -177,7 +228,11 @@ export const ChooseSection: React.FC = () => {
                     )}>
                         Фото карти з підписами об’єктів:
                     </div>
-                    <div className="relative w-full h-[75rem] rounded-[1rem] overflow-hidden cursor-pointer">
+                    <div className={cn(
+                        'relative w-full h-[75rem] rounded-[1rem] overflow-hidden mb-[3rem]',
+                        'max-tablet:h-[40rem]',
+                        'max-mobile:h-[20rem]'
+                    )}>
                         <Link href='pdf/map.pdf' target="_blank" rel="nofollow">
                             <Button className={cn(
                                 'absolute left-[1rem] top-[1rem] bg-regal-white'
@@ -186,6 +241,45 @@ export const ChooseSection: React.FC = () => {
                             </Button>
                         </Link>
                         <Image src='img/map.jpg' fill alt="map" className="object-cover z-[-1]" />
+                    </div>
+                    <div className={cn(
+                        'flex justify-start items-start flex-wrap flex-col h-[18rem] gap-[1rem] w-full',
+                        'max-tablet:h-15rem',
+                        'max-mobile:h-auto max-mobile:flex-row max-mobile:gap-0 max-mobile:gap-y-[1rem]'
+                    )}>
+                        {placeList.map((item, index) => {
+                            return (
+                                <div key={index} className={cn(
+                                    'w-[25%] flex',
+                                    'max-tablet:w-[calc(100%/3)]',
+                                    'max-mobile:w-[50%]'
+                                )}>
+                                    <div className={cn(
+                                        'text-[1.8rem] font-[700] pr-[1rem] leading-[1]',
+                                        'max-tablet:text-[1.2rem] max-tablet:pr-[.5rem]',
+                                        'max-mobile:text-[1rem]'
+                                    )}>
+                                        {index + 1 + '.'}
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <div className={cn(
+                                            'text-[1.8rem] font-[700] leading-[1]',
+                                            'max-tablet:text-[1.2rem]',
+                                            'max-mobile:text-[1rem] max-mobile:mb-[.5rem]'
+                                        )}>
+                                            {item.ua}
+                                        </div>
+                                        <div className={cn(
+                                            'italic text-[1.8rem] font-[500] leading-[1.5]',
+                                            'max-tablet:text-[1.2rem]',
+                                            'max-mobile:text-[1rem] max-mobile:leading-[1.1]'
+                                        )}>
+                                            {item.en}
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </Container>
