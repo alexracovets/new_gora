@@ -1,14 +1,15 @@
 'use client';
 
 import { FaSearchLocation, FaUnlockAlt, FaDollarSign, FaGift } from "react-icons/fa";
-import React from 'react';
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
+import React from 'react';
 
 import { Container } from '@/components/shared/container';
 import { Section } from '@/components/shared/section';
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { HowWorkSection } from "./howWorkSection";
 
 export const ChooseSection: React.FC = () => {
     const iconStyle = "w-[2.5rem] h-[2.5rem] max-tablet:w-[1.5rem] max-tablet:h-[1.5rem] max-mobile:w-[1.1rem] max-mobile:h-[1.1rem]";
@@ -152,7 +153,7 @@ export const ChooseSection: React.FC = () => {
                         </Link>
                     </div>
                     <div className={cn(
-                        'text-[2.5rem] w-[77.1rem] leading-[3.5rem]',
+                        'text-[2.5rem] w-[77.1rem] leading-[3.5rem] font-[300]',
                         'max-tablet:text-[1.2rem] max-tablet:w-[40.616rem] max-tablet:leading-[1.68rem]',
                         'max-mobile:w-full'
                     )}>
@@ -168,40 +169,40 @@ export const ChooseSection: React.FC = () => {
                         <ul className="flex flex-col gap-[.5rem] mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
                             <li className={cn(
                                 'relative pl-[1rem]',
-                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
-                                'max-tablet:before:top-[.3rem]',
+                                'before:content-[""] before:absolute before:top-[1.5rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.5rem]',
                                 'max-mobile:before:top-[.5rem]'
                             )}>
                                 Безкоштовне проживання та харчування всім паломникам;
                             </li>
                             <li className={cn(
                                 'relative pl-[1rem]',
-                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
-                                'max-tablet:before:top-[.3rem]',
+                                'before:content-[""] before:absolute before:top-[1.5rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.5rem]',
                                 'max-mobile:before:top-[.5rem]'
                             )}>
                                 Безкоштовний трансфер на півострів Афон усім військовим;
                             </li>
                             <li className={cn(
                                 'relative pl-[1rem]',
-                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
-                                'max-tablet:before:top-[.3rem]',
+                                'before:content-[""] before:absolute before:top-[1.5rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.5rem]',
                                 'max-mobile:before:top-[.5rem]'
                             )}>
                                 Безкоштовну духовно-психологічну реабілітацію ветеранам на Афоні;
                             </li>
                             <li className={cn(
                                 'relative pl-[1rem]',
-                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
-                                'max-tablet:before:top-[.3rem]',
+                                'before:content-[""] before:absolute before:top-[1.5rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.5rem]',
                                 'max-mobile:before:top-[.5rem]'
                             )}>
                                 Відродить та продовжить українську духовну спадщину на Афоні;
                             </li>
                             <li className={cn(
                                 'relative pl-[1rem]',
-                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
-                                'max-tablet:before:top-[.3rem]',
+                                'before:content-[""] before:absolute before:top-[1.5rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.5rem]',
                                 'max-mobile:before:top-[.5rem]'
                             )}>
                                 Створить місце сили України на Святій землі та щоденну молитву за українців та мир.
@@ -282,6 +283,7 @@ export const ChooseSection: React.FC = () => {
                         })}
                     </div>
                 </div>
+                <HowWorkSection />
             </Container>
         </Section>
     );

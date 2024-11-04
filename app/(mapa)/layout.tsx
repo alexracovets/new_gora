@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import { Header } from '@/components/shared/header';
-import { Modal } from "@/components/shared/modal/modal";
+import { Header } from '@/components/shared/header'; 
 
 export const metadata: Metadata = {
   title: "ГОРА",
@@ -13,8 +12,7 @@ export default function MapaLayout({ children }: Readonly<{ children: React.Reac
     <>
       <Header canHide />
       <main>
-        {children}
-        <Modal />
+        {children} 
       </main>
     </>
   );
