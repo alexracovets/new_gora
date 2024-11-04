@@ -99,10 +99,9 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                         'max-mobile:m-[0] max-mobile:px-0'
                     )}>
                     <div className={cn(
-                        'flex justify-between items-center py-[1.5rem] px-[4.6rem] rounded-[2rem] transition-all duration-300 ease-out',
+                        'flex justify-between items-center py-[1.5rem] px-[4.6rem] rounded-[2rem] transition-all duration-300 ease-out bg-regal-white',
                         'max-tablet:px-[2.2rem] rounded-[2rem]',
-                        'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none',
-                        isOpen ? 'bg-regal-green' : 'bg-regal-white'
+                        'max-mobile:py-[1.6rem] max-mobile:px-[2rem] max-mobile:rounded-none'
                     )}>
                         <Link href={'/#start'}
                             className='realtive z-[100]'
@@ -113,9 +112,9 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                             }}
                         >
                             <Logo className={cn(
-                                'w-[9rem] h-[4.181rem]',
-                                'max-tablet:w-[5.932rem] max-tablet:h-[2.756rem]',
-                                'max-mobile:w-[9rem] max-mobile:h-[4.181rem]'
+                                'w-[9rem] h-[5.33rem]',
+                                'max-tablet:w-[6rem] max-tablet:h-[3.5533rem]',
+                                'max-mobile:w-[6.7542rem] max-mobile:h-[4rem]'
                             )} color='#171717' />
                         </Link>
                         <NavigationMenu className={cn(
@@ -173,7 +172,9 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                                     )}>
                                         <Link href={'/'} className='realtive z-[100]' onClick={() => setOpen(false)}>
                                             <Logo className={cn(
-                                                'max-mobile:w-[9rem] max-mobile:h-[4.181rem]'
+                                                'w-[9rem] h-[5.33rem]',
+                                                'max-tablet:w-[6rem] max-tablet:h-[3.5533rem]',
+                                                'max-mobile:w-[6.7542rem] max-mobile:h-[4rem]'
                                             )} color='#171717' />
                                         </Link>
                                         <div className={cn(

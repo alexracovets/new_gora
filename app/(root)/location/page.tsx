@@ -9,7 +9,7 @@ export default function Location() {
       <Section className={cn(
         'bg-regal-black pt-[28.2rem] pb-[10rem]',
         'max-tablet:pt-[16.2rem] max-tablet:pb-[5rem]',
-        'max-mobile:py-[5rem]'
+        'max-mobile:py-[5rem] max-mobile:pt-[12rem]'
       )}>
         <Container>
           <h1 className={cn(

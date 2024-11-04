@@ -17,7 +17,7 @@ export const TomeSection: React.FC = () => {
         )}>
             <Container>
                 <div className={cn(
-                    'flex justify-between items-start',
+                    'flex justify-between items-center',
                     'max-mobile:flex-col'
                 )}>
                     <div className={cn(
@@ -36,7 +36,12 @@ export const TomeSection: React.FC = () => {
                             'max-tablet:text-[1.2rem] max-tablet:leading-[1.68rem]',
                             'max-mobile:leading-[1.463rem]'
                         )}>
-                            Ви станете тією людиною, хто творить історію – вперше з 18 століття відбудовується осередок українства на Афоні. Відкрий свою сторінку історії!
+                            <p className='mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]'>
+                                Ви станете тією людиною, хто творить історію – вперше з 18 століття відбудовуєте осередок українства на Афоні. Відкрий свою сторінку історії!
+                            </p>
+                            <p className='font-[500]'>
+                                Напиши її разом з нами на Святій Горі Афон
+                            </p>
                         </div>
                         <Link href='/location'>
                             <Button>
@@ -51,11 +56,11 @@ export const TomeSection: React.FC = () => {
                         'max-mobile:w-full'
                     )}>
                         <div className={cn(
-                            'relative w-[63.3rem] h-[34.458rem]',
-                            'max-tablet:w-[31.148rem] max-tablet:h-[16.955rem]',
-                            'max-mobile:w-[27.7rem] max-mobile:h-[15.079rem]'
+                            'relative w-[80rem] h-[53rem]',
+                            'max-tablet:w-[40rem] max-tablet:h-[26.5rem]',
+                            'max-mobile:w-[28rem] max-mobile:h-[18.55rem]'
                         )}>
-                            <Image src='svg/books.svg' fill alt='books' />
+                            <Image src='img/books.png' fill alt='books' />
                         </div>
                     </div>
                 </div>

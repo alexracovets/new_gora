@@ -58,7 +58,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span
           className={cn(
             'transition-all duration-300 ease-in',
-            isHover ? 'translate-x-[2rem]' : 'translate-x-[0rem]'
+            isHover ? 'translate-x-[1.8rem] max-tablet:translate-x-[1.2rem] max-mobile:translate-x-[.9rem]' : 'translate-x-[0rem]'
           )}
         >
           {props.children}
