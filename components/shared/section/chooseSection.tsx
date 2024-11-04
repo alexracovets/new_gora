@@ -8,6 +8,7 @@ import { Container } from '@/components/shared/container';
 import { Section } from '@/components/shared/section';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const ChooseSection: React.FC = () => {
     const iconStyle = "w-[2.5rem] h-[2.5rem] max-tablet:w-[1.5rem] max-tablet:h-[1.5rem] max-mobile:w-[1.1rem] max-mobile:h-[1.1rem]";
@@ -105,22 +106,59 @@ export const ChooseSection: React.FC = () => {
                         'max-mobile:text-[1.2rem] max-mobile:w-full max-mobile:leading-[1.463rem]'
                     )}>
                         <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
-                            Територія україномовного осередку на Афоні складає 1,6 ГА або ж приблизно 16000 кв.м. та знаходиться у закинутому і зарослому хащами стані.
+                            Відбудова україномовного осередку на Афоні – це народний проєкт реконструкції та розбудови, а тому кожен бажаючий може взяти участь у ньому та внести свою лепту у відродження, стати опікуном!
                         </p>
                         <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
-                            Обери розмір території відновлення щоб підтримати та привести до ладу. <br />
-                            Всі кошти поступають виключно на рахунок БФ “Святих Архангелів” ПЦУ, що опікується відбудовою.
+                            Громадська опікунська рада Афону (скор. ГОРА) – це спільнота відповідальних людей (опікунів), які своїм грошовим внеском беруть опікунство над україномовним осередком на 2025 рік. Таке опікунство допоможе відбудові та в майбутньому формувати бюджет його життєдіяльності на кожен рік наперед.
                         </p>
-                        <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
-                            Вкажи тел та e-mail і ми надішлемо вам сертифікат опікуна “ГОРА” на Афоні на знак подяки та пам’ятний сувенір.
+                        <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem] font-[500]">
+                            Відбудований осередок створить:
                         </p>
-                        <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
-                            Щороку виходитиме том з усіма опікунами “ГОРИ” (Ваше фото та коротка інформація про вас) зберігатиметься у відбудованому осередку. Так буде створено бібліотеку відбудовників на Афоні, а копія такого тому також буде у вас.
+                        <ul className="flex flex-col gap-[.5rem] mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
+                            <li className={cn(
+                                'relative pl-[1rem]',
+                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.3rem]',
+                                'max-mobile:before:top-[.5rem]'
+                            )}>
+                                Безкоштовне проживання та харчування всім паломникам;
+                            </li>
+                            <li className={cn(
+                                'relative pl-[1rem]',
+                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.3rem]',
+                                'max-mobile:before:top-[.5rem]'
+                            )}>
+                                Безкоштовний трансфер на півострів Афон усім військовим;
+                            </li>
+                            <li className={cn(
+                                'relative pl-[1rem]',
+                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.3rem]',
+                                'max-mobile:before:top-[.5rem]'
+                            )}>
+                                Безкоштовну духовно-психологічну реабілітацію ветеранам на Афоні;
+                            </li>
+                            <li className={cn(
+                                'relative pl-[1rem]',
+                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.3rem]',
+                                'max-mobile:before:top-[.5rem]'
+                            )}>
+                                Відродить та продовжить українську духовну спадщину на Афоні;
+                            </li>
+                            <li className={cn(
+                                'relative pl-[1rem]',
+                                'before:content-[""] before:absolute before:top-[.75rem] before:left-0 before:w-[.5rem] before:h-[.5rem] before:bg-regal-black before:rounded-[50%]',
+                                'max-tablet:before:top-[.3rem]',
+                                'max-mobile:before:top-[.5rem]'
+                            )}>
+                                Створить місце сили України на Святій землі та щоденну молитву за українців та мир.
+                            </li>
+                        </ul>
+                        <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[3rem] font-[500]">
+                            “Встигни потрапити до першого тому ГОРА-2025”!
                         </p>
-                        <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem]">
-                            Наразі на Афоні працює <Link href={'https://www.facebook.com/shumylo'} className="underline inline">Сергій Шумило</Link>, історик та дослідник Міжнародного інституту афонської спадщини України ні Афоні, який знаходить десятки архівних книг, що засвідчують фінансову підтримку запорізьких козаків у будівництві скитів та келій.
-                        </p>
-                        <p className="max-mobile:mb-[3rem]"><b className="font-[600]">Давайте продовжувати традицію наших предків!</b></p>
                         <Link href={'/mapa'}>
                             <Button className={cn(
                                 'hidden',
@@ -129,6 +167,25 @@ export const ChooseSection: React.FC = () => {
                                 Стати опікуном
                             </Button>
                         </Link>
+                    </div>
+                </div>
+                <div>
+                    <div className={cn(
+                        'text-[5rem] font-[500] mb-[4rem] leading-[5.5rem]',
+                        'max-tablet:text-[2.4rem] max-tablet:leading-[2.64rem] max-tablet:mb-[2rem]',
+                        'max-mobile:mb-[3rem]'
+                    )}>
+                        Фото карти з підписами об’єктів:
+                    </div>
+                    <div className="relative w-full h-[75rem] rounded-[1rem] overflow-hidden cursor-pointer">
+                        <Link href='pdf/map.pdf' target="_blank" rel="nofollow">
+                            <Button className={cn(
+                                'absolute left-[1rem] top-[1rem] bg-regal-white'
+                            )}>
+                                Відкрити в форматі PDF
+                            </Button>
+                        </Link>
+                        <Image src='img/map.jpg' fill alt="map" className="object-cover z-[-1]" />
                     </div>
                 </div>
             </Container>
