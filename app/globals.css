@@ -5,6 +5,24 @@
 body {
   font-family: var(--font-montserrat);
   color: var(--regal-black);
+  min-height: 100dvh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 3px;
+  position: absolute;
+}
+
+body::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #171717;
+  border: none;
+  cursor: pointer;
 }
 
 @layer utilities {
@@ -45,4 +63,8 @@ a,
 button,
 input {
   display: block;
+}
+
+.pointer-events-none {
+  pointer-events: none !important;
 }

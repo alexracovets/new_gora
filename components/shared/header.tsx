@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Fade as Hamburger } from 'hamburger-react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Headroom from 'react-headroom';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -11,35 +11,24 @@ import { Drawer, DrawerContent, DrawerTitle, DrawerHeader, DrawerDescription } f
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { Container } from "@/components/shared/container";
 import Logo from '@/components/shared/logo';
+
 import useHideHeader from '@/store/useHideHeader';
-import useCustomScroll from '@/store/useCustomScroll';
+import useIsMobile from '@/store/useIsMobile';
 
-interface HeaderProps {
-    canHide?: boolean;
-}
-
-interface HeadroomWithUnpin extends Headroom {
-    unpin: () => void;
-    pin: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ canHide }) => {
+export const Header: React.FC = () => {
     const setIsHideHeader = useHideHeader(state => state.setIsHideHeader);
     const isHideHeader = useHideHeader(state => state.isHideHeader);
-    const isPin = useCustomScroll(state => state.isPin);
-    const headroomRef = useRef<HeadroomWithUnpin | null>(null);
+    const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+    const isMobile = useIsMobile(state => state.isMobile);
+    const [canHide, setCanHide] = useState(false);
     const [isOpen, setOpen] = useState(false);
-    const pathName = usePathname();
+    const pathname = usePathname();
+    const router = useRouter();
 
     const links = [
         {
-            href: '/',
-            name: 'Про проєкт',
-            border: false
-        },
-        {
-            href: '/#work',
-            name: 'Як це працює',
+            href: '/#start',
+            name: 'ГОРА',
             border: false
         },
         {
@@ -48,13 +37,22 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
             border: false
         },
         {
-            href: '/reference',
-            name: 'Локації',
+            href: '/#work',
+            name: 'Як це працює',
             border: false
         },
         {
-
-            href: pathName === '/mapa' ? '/#contact' : pathName + '#contact',
+            href: '/#video',
+            name: 'Відео',
+            border: false
+        },
+        {
+            href: '/reference',
+            name: 'Довідка',
+            border: false
+        },
+        {
+            href: '#contacts',
             name: 'Контакти',
             border: true
         }
@@ -63,34 +61,54 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
     const handleScroll = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
         const elementId = href.split('#')[1];
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+
+        if (elementId === 'contacts') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                if (pathname !== '/') {
+                    setScrollTarget('contacts');
+                    router.push('/');
+                }
+            }
+        } else
+            if (pathname === '/') {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                setScrollTarget(elementId);
+                router.push('/');
+            }
     };
+
+    useEffect(() => {
+        if (scrollTarget && pathname === '/') {
+            const element = document.getElementById(scrollTarget);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                setScrollTarget(null);
+            }
+        }
+    }, [pathname, scrollTarget]);
 
     useEffect(() => {
         const newPath = window.location.pathname;
         history.replaceState(null, '', newPath);
-    }, [pathName])
+        setCanHide(pathname === '/mapa')
+    }, [pathname])
 
     useEffect(() => {
-        if (headroomRef.current) {
-            if (isPin) {
-                headroomRef.current.pin();
-            } else {
-                headroomRef.current.unpin();
-            }
+        if (!isMobile) {
+            setOpen(false)
         }
-    }, [isPin]);
-
+    }, [isMobile]);
+    
     return (
-        <header onPointerMove={() => setIsHideHeader(false)} className={cn(
-            'absolute left-0 top-0 w-full z-[10]'
-        )}>
-            <Headroom
-                ref={headroomRef}
-            >
+        <header onPointerMove={() => setIsHideHeader(false)} className='absolute left-0 top-0 w-full z-[10]'>
+            <Headroom>
                 <Container className={
                     cn(
                         'transition-all duration-300 ease-in-out translate-y-[0%] mt-[2dvh] w-full',
@@ -106,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                         <Link href={'/#start'}
                             className='realtive z-[100]'
                             onClick={(e) => {
-                                if (pathName === '/') {
+                                if (pathname === '/') {
                                     handleScroll(e, '/#start')
                                 }
                             }}
@@ -130,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                                                     href={link.href}
                                                     title={link.name}
                                                     onClick={(e) => {
-                                                        if (link.href.includes('#') && !(pathName === '/mapa' && link.href === '/#contact')) {
+                                                        if (link.href.includes('#')) {
                                                             handleScroll(e, link.href);
                                                         }
                                                     }}
@@ -153,49 +171,30 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
                             'hidden',
                             'max-mobile:block'
                         )}>
+                            <div className={cn(
+                                'border-[2px] border-regal-black rounded-[10px]'
+                            )}>
+                                <Hamburger toggled={isOpen} toggle={setOpen} color="#171717" size={18} />
+                            </div>
                             <Drawer open={isOpen} onOpenChange={setOpen} direction='top'>
-                                <div className={cn(
-                                    'border-[2px] border-regal-black rounded-[10px]'
-                                )}>
-                                    <Hamburger toggled={isOpen} toggle={setOpen} color="#171717" size={18} />
-                                </div>
-                                <DrawerContent className={cn(
-                                    'max-mobile:px-[2rem] max-mobile:py-[1.6rem]'
-                                )}>
+                                <DrawerContent className='pointer-events-none'>
                                     <DrawerHeader className='hidden'>
                                         <DrawerTitle></DrawerTitle>
                                         <DrawerDescription></DrawerDescription>
                                     </DrawerHeader>
-                                    <div className={cn(
-                                        'flex justify-between items-center w-full',
-                                        ''
-                                    )}>
-                                        <Link href={'/'} className='realtive z-[100]' onClick={() => setOpen(false)}>
-                                            <Logo className={cn(
-                                                'w-[9rem] h-[5.33rem]',
-                                                'max-tablet:w-[6rem] max-tablet:h-[3.5533rem]',
-                                                'max-mobile:w-[6.7542rem] max-mobile:h-[4rem]'
-                                            )} color='#171717' />
-                                        </Link>
-                                        <div className={cn(
-                                            'border-[2px] border-regal-black rounded-[10px]'
-                                        )}>
-                                            <Hamburger toggled={isOpen} toggle={setOpen} color="#171717" size={18} />
-                                        </div>
-                                    </div>
-
-                                    <NavigationMenu>
-                                        <NavigationMenuList className={cn(
-                                            'max-mobile:flex max-mobile:flex-col max-mobile:justify-center max-mobile:items-start'
-                                        )}>
+                                    <NavigationMenu className='pointer-events-auto'>
+                                        <NavigationMenuList className='flex flex-col justify-center items-start'>
                                             {
                                                 links.map((link, index) => {
                                                     return (
-                                                        <NavigationMenuItem key={index} className={link.border ? 'border-[0.1rem] border-regal-black rounded-[.6rem] mt-[1rem]' : ''}>
+                                                        <NavigationMenuItem key={index} className={link.border ? 'relative z-[10] border-[0.1rem] border-regal-black rounded-[.6rem] mt-[1rem] pointer-events-auto' : ''}>
                                                             <Link
                                                                 href={link.href}
-                                                                onClick={() => {
+                                                                onClick={(e) => {
                                                                     setOpen(false);
+                                                                    if (link.href.includes('#')) {
+                                                                        handleScroll(e, link.href);
+                                                                    }
                                                                 }}
                                                                 passHref
                                                                 className={cn(

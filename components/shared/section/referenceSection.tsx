@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export const ReferenceSection: React.FC = () => {
     return (
-        <Section className={cn(
+        <Section id='reference' className={cn(
             'bg-regal-white'
         )}>
             <Container>

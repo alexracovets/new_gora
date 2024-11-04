@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             'relative bg-regal-black rounded-t-[4rem] mt-[-4rem]',
             'max-tablet:rounded-t-[2rem] max-tablet:mt-[-1rem]',
             'max-mobile:rounded-t-[1rem] max-mobile:mt-[-1rem]'
-        )} id='contact'>
+        )} id='contacts'>
             <Container className={cn(
                 'py-[8.8rem] flex justify-between items-center',
                 'max-tablet:p-[3rem]',

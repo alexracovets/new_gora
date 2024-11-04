@@ -69,7 +69,7 @@ export const HowWorkSection: React.FC = () => {
                 <p className="mb-[2.4rem] max-tablet:mb-[1.2rem] max-mobile:mb-[1.4rem] font-[300]">
                     Мета збору “ГОРА-2025” – це відбудова 1033-літньої Келії Св. Архангелів, розбудова осередку та приведення до ладу всієї території навколо неї (ландшафту). “ГОРА-2025” формується в період з 1.11.24 по 1.05.2025 року.
                 </p>
-                <div className={cn(
+                <div id="video" className={cn(
                     'w-[100rem] h-[56.3rem] my-[3rem] mx-auto rounded-[2rem] overflow-hidden',
                     'max-tablet:w-full max-tablet:h-[38.5rem]',
                     'max-mobile:h-[15.5rem] max-mobile:rounded-[1rem]'
