@@ -31,7 +31,7 @@ export const Scroll: React.FC<React.PropsWithChildren> = ({ children }) => {
             autoHeight
             autoHeightMin={100}
             autoHeightMax={'100dvh'}
-            renderTrackVertical={props => <div {...props} className={'bg-regal-green top-0 right-0 h-full w-[4px!important] z-[100]'} />}
+            renderTrackVertical={props => <div {...props} className={'bg-regal-white top-0 right-0 h-full w-[4px!important] z-[100]'} />}
             renderThumbVertical={props => <div {...props} className={'bg-regal-black z-[100]'} />}
             universal={true}
         >

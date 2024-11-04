@@ -67,7 +67,7 @@ export const LocationSection: React.FC = () => {
                                 <div key={item.number} className='flex justify-start items-center w-full'>
                                     <div
                                         className={cn(
-                                            'flex justify-center items-center text-[3.2rem] font-[600] w-[9.3rem] h-[9.3rem] rounded-[1rem] bg-regal-green mr-[2rem]',
+                                            'flex justify-center items-center text-[3.2rem] text-regal-white font-[600] w-[9.3rem] h-[9.3rem] rounded-[1rem] bg-regal-black mr-[2rem]',
                                             'max-tablet:text-[1.6rem] max-tablet:w-[4.6rem] max-tablet:h-[4.6rem] max-tablet:min-w-[4.6rem]',
                                             'max-mobile:text-[2rem] max-mobile:w-[3.6rem] max-mobile:h-[3.6rem] max-mobile:min-w-[3.6rem]'
                                         )}

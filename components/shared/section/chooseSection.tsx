@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export const ChooseSection: React.FC = () => {
     const iconStyle = "w-[2.5rem] h-[2.5rem] max-tablet:w-[1.5rem] max-tablet:h-[1.5rem] max-mobile:w-[1.1rem] max-mobile:h-[1.1rem]";
-    const iconColor = '#171717';
+    const iconColor = '#FFFFFF';
 
     const numberList = [
         {
@@ -56,7 +56,7 @@ export const ChooseSection: React.FC = () => {
                                     'max-mobile:w-full'
                                 )}>
                                     <div className={cn(
-                                        'flex justify-center items-center w-[9.3rem] min-w-[9.3rem] h-[9.3rem] bg-regal-green rounded-[1rem] mr-[2rem]',
+                                        'flex justify-center items-center w-[9.3rem] min-w-[9.3rem] h-[9.3rem] bg-regal-black rounded-[1rem] mr-[2rem]',
                                         'max-tablet:w-[4.6rem] max-tablet:min-w-[4.6rem] max-tablet:h-[4.6rem] max-tablet:mr-[1.2rem]',
                                         'max-mobile:w-[3.6rem] max-mobile:min-w-[3.6rem] max-mobile:h-[3.6rem]'
                                     )}>
