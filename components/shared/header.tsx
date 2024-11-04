@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ canHide }) => {
             border: false
         },
         {
-            href: '/location',
+            href: '/reference',
             name: 'Локації',
             border: false
         },

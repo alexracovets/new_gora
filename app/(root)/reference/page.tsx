@@ -1,7 +1,8 @@
-import { Container } from "@/components/shared/container"
-import { Section } from "@/components/shared/section"
-import { LocationSection } from "@/components/shared/section/locationSection";
 import { cn } from "@/lib/utils";
+
+import { ReferenceSection } from "@/components/shared/section/referenceSection";
+import { Container } from "@/components/shared/container";
+import { Section } from "@/components/shared/section";
 
 export default function Location() {
   return (
@@ -16,10 +17,10 @@ export default function Location() {
             'text-[6.6rem] text-regal-white font-[500]',
             'max-tablet:text-[3.2rem]',
             'max-mobile:text-[2rem]'
-          )}>Локації</h1>
+          )}>ДОВІДКА</h1>
         </Container>
       </Section>
-      <LocationSection />
+      <ReferenceSection />
     </>
   );
 }
