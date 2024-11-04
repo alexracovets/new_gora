@@ -100,14 +100,14 @@ export const Footer: React.FC = () => {
                                 'max-mobile:w-[2rem] max-mobile:h-[2rem]'
                             )} />
                         </Link> */}
-                        <Link href={"https://www.instagram.com/pilgrimagecenter/"} target='_blank' className='flex justify-start items-center'>
+                        <Link href={"https://www.facebook.com/pilgrimage.center.ocu"} target='_blank' className='flex justify-start items-center'>
                             <FaFacebook color='#fff' className={cn(
                                 'w-[4rem] h-[4rem]',
                                 'max-tablet:w-[2.4rem] max-tablet:h-[2.4rem]',
                                 'max-mobile:w-[2rem] max-mobile:h-[2rem]'
                             )} />
                         </Link>
-                        <Link href={"https://www.facebook.com/pilgrimage.center.ocu"} target='_blank' className='flex justify-start items-center'>
+                        <Link href={"https://www.instagram.com/vvzbir_afon?igsh=cXFwanQ3Y3ByMnNo"} target='_blank' className='flex justify-start items-center'>
                             <FaInstagram color='#fff' className={cn(
                                 'w-[4rem] h-[4rem]',
                                 'max-tablet:w-[2.4rem] max-tablet:h-[2.4rem]',
